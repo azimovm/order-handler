@@ -9,7 +9,7 @@ public class OrderController {
     private OrderService orderService; // Inject your service layer
 
     @GetMapping("/order-status")
-    @SecurityClassification(dataConfidentiality = DataConfidentiality.C3, dataCompliance = @DataCompliance(ComplianceFlag.RDPP))
+    @SecurityClassification(dataConfidentiality = DataConfidentiality.C4, dataCompliance = @DataCompliance(ComplianceFlag.RDPP))
     public StatusResponse getOrderStatus(
             @Parameter @PathVariable(name = "orderId") final OrderIdSanitization orderId,
             @Parameter @RequestParam(name = "customerId") final CustomerIdSanitization customerId)
@@ -28,7 +28,7 @@ public class OrderController {
     }
 
     @GetMapping("/order-availability")
-    @SecurityClassification(dataConfidentiality = DataConfidentiality.C2, dataCompliance = @DataCompliance(ComplianceFlag.RDPP))
+    @SecurityClassification(dataConfidentiality = DataConfidentiality.C3, dataCompliance = @DataCompliance(ComplianceFlag.RDPP))
     public OrderStatusResponse getOrderAvailability(
             @Parameter @PathVariable(name = "productId") final AgoIdSanitization productId,
             @Parameter @PathVariable(name = "usecase") final ValidationUseCaseSanitizer usecase,
